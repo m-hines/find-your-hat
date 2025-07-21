@@ -79,9 +79,11 @@ class Field {
 
     printField() {
         console.log(this.field.map((element) => element.join('')).join('\n'));
-    }  
+    }
+
+    // this function asks prompts the user for their first move:
     moveInitializer() {
-        let yourMove = prompt('Find your hat ^ in the field by using the WASD keys. The asterisk * marks your position. Avoid holes: O. Do not leave the field!');
+        let yourMove = prompt('Find your hat ^ in the field by using the wasd keys (w=up a=left s=down d=right). The asterisk * marks your position. Avoid holes: O. Do not leave the field!').toLowerCase();
         switch (yourMove) {
             case 'w':
                 this.field[0][0] = fieldCharacter;
@@ -130,9 +132,10 @@ class Field {
         }
     }
 
+    // this function prompts the user for every move but the first move:
     moveAgain() {
-        let yourMove = prompt('Move again!');
-            switch (yourMove) {
+        let yourMove = prompt('Move again!').toLowerCase();
+            switch (yourMove) {f
         case 'w':
             this._playerRow -= 1;
             this.field[this._playerRow + 1][this._playerCol] = fieldCharacter
@@ -230,12 +233,7 @@ class Field {
 }
 
 
-const myField = new Field([
-    ['*','░','░'],
-    ['O','░','O'],
-    ['░','░','^'],
-])
+const myField = new Field([[]]);
 
-
-// to do: add another percentage parameter to the generateField function that determines the percentage of places that have a hole
-// to do: add conditions so that there cannot be more than two holes adjacent to each other, or something like that
+// add another percentage parameter to the generateField function that determines the percentage of places that have a hole?
+// add conditions so that there cannot be more than two holes adjacent to each other, or something like that?
