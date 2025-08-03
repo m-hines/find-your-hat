@@ -135,7 +135,7 @@ class Field {
     // this function prompts the user for every move but the first move:
     moveAgain() {
         let yourMove = prompt('Move again!').toLowerCase();
-            switch (yourMove) {f
+            switch (yourMove) {
         case 'w':
             this._playerRow -= 1;
             this.field[this._playerRow + 1][this._playerCol] = fieldCharacter
